@@ -4,6 +4,7 @@
 # 07/10/19                       #  
 ##################################
 
+start_time <- Sys.time()
 ############################## 1_setup_sdmdata ##############################
 
 # Packages
@@ -80,11 +81,11 @@ cl <- makeCluster(no_cores)
 
 algos <- c("bioclim", "brt", "domain", "maxent", "glm", "mahal", "svme", "svmk", "rf")
 
-system.time(foreach(i=1:3) %dopar% sqrt(do_any(species_name = species[98],
+foreach(i=1:3) %dopar% sqrt(do_any(species_name = species[98],
                                                algo = algos[i],
                                                predictors = clim.stack,
                                                models_dir = modelos,
-                                               equalize = T)))
+                                               equalize = T))
 stopCluster(cl)
 ############################## 3_final_model ##############################
 
@@ -118,7 +119,8 @@ ens <- ensemble_model(species[98],
                       scale_models = TRUE)
 
 #############################################################################
-                      
+end_time <- Sys.time()
+total_time <- end_time - start_time
                       
 
 

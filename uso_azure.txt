@@ -1,0 +1,52 @@
+Máquina virtual Azure
+
+entrar: 
+https://portal.azure.com/#home
+
+ir no ícone:
+"Máquinas virtuais"
+
+Selecionar a máquina: 
+modleR1
+modleR2 (em proceso)
+
+copiar o endereço de ip público: 
+obs: sempre será um ip novo.
+
+terminal bash:
+(botão direito, git bash here)
+
+no azure, em conectar, copie:
+logon usando a conta local VM
+
+no terminar basch, digita
+cd ..e o endereço copiado do azure
+
+insira senha do azure
+
+digite: 
+yes
+
+iniciar o R no termnal bash:
+
+R
+execute o script
+
+para sair do R em bash:
+q()
+
+############################
+Java instalado. poblemas pra instalar o rJava. dificuldade de compilar os seguintes arquivos:
+
+trying to compile and link a JNI program
+detected JNI cpp flags    : -I/usr/lib/jvm/java-1.8.0-openjdk-amd64/include -I/usr/lib/jvm/java-1.8.0-openjdk-amd64/include/linux
+detected JNI linker flags : -L/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/amd64/server -ljvm
+
+ sara: instalar biblioteca por fora do R pra ele achar os arquivos: JBK:
+
+sudo apt-get install default-jdk
+
+
+
+
+
