@@ -79,9 +79,10 @@ sdmdata_1sp <- setup_sdmdata(species_name = species[98],
 no_cores <- detectCores() - 1
 cl <- makeCluster(no_cores)
 
-algos <- c("bioclim", "brt", "domain", "maxent", "glm", "mahal", "svme", "svmk", "rf")
+#algos <- c("bioclim", "brt", "domain", "maxent", "glm", "mahal", "svme", "svmk", "rf")
+algos <- c("bioclim", "brt", "domain", "glm", "mahal", "svme", "svmk", "rf")
 
-foreach(i=1:3) %dopar% sqrt(do_any(species_name = species[98],
+foreach(i=1:3) %dopar% (do_any(species_name = species[98],
                                                algo = algos[i],
                                                predictors = clim.stack,
                                                models_dir = modelos,
