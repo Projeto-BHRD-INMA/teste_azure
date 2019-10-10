@@ -1,5 +1,5 @@
 ##################################
-# testes azure 1                 #
+# testes azure 2                 #
 # Kele Rocha Firmiano            #
 # 07/10/19                       #  
 ##################################
@@ -83,11 +83,11 @@ cl <- makeCluster(no_cores)
 #algos <- c("bioclim", "brt", "domain", "maxent", "glm", "mahal", "svme", "svmk", "rf")
 algos <- c("bioclim", "brt", "domain", "glm", "mahal", "svme", "svmk", "rf")
 
-foreach(i=1:3) %dopar% (do_any(species_name = species[98],
-                                               algo = algos[i],
-                                               predictors = clim.stack,
-                                               models_dir = modelos,
-                                               equalize = T))
+foreach(i=1:8) %dopar% (do_any(species_name = species[98],
+                               algo = algos[i],
+                               predictors = clim.stack,
+                               models_dir = modelos,
+                               equalize = T))
 stopCluster(cl)
 ############################## 3_final_model ##############################
 

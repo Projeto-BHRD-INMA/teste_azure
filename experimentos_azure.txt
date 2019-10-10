@@ -1,0 +1,20 @@
+Experimentos nas máquinas virtuais do Azure
+
+Rodando o script teste_azure1.R - modleR paralelizado por 3 algoritmos (somente em do_any)
+
+##### 1 espécie, 3 variáveis (5 arcmin, Am. do Sul), 3 algoritmos
+
+VM modleR1 usando 3 nucleos = 18.3391 mins
+VM modleR1 usando 4 nucleos = 16.83246 mins, 16.57964 mins, 16.78272 mins
+VM modleR2 usando 47 nucleos = 6.512779 mins, 6.405771 mins, 6.335959 mins
+VM modleR2 usando 48 nucleos = 6.648781 mins, 6.469306 mins, 6.45023 mins
+PC local Kele = 6.350219 mins, 6.165524 mins, 5.917856 mins
+
+
+Rodando o script teste_azure2.R - modleR paralelizado por 8 algoritmos (somente em do_any)
+
+##### 1 espécie, 3 variáveis (5 arcmin, Am. do Sul), 8 algoritmos
+
+VM modleR1 usando 4 nucleos = 58.5409 mins, 55.47186 mins
+VM modleR2 usando 48 nucleos = 22.49725 mins, 22.50544 mins, 21.42821 mins
+PC local Kele = 18.2616 mins, 17.55991 mins, 17.15467 mins
