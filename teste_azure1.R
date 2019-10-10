@@ -4,16 +4,17 @@
 # 07/10/19                       #  
 ##################################
 
-start_time <- Sys.time()
-############################## 1_setup_sdmdata ##############################
-
 # Packages
 library(modleR)
 library(raster)
 library(dplyr)
 library(foreach)
 library(parallel)
+library(doParallel)
 
+start_time <- Sys.time()
+
+############################## 1_setup_sdmdata ##############################
 # Loading pca environment data (pca axes, see script "0.1_get_envdata")
 clim <- list.files(path="data/pca", ".*.tif$", 
                    full.names = TRUE)
@@ -77,17 +78,18 @@ sdmdata_1sp <- setup_sdmdata(species_name = species[98],
 # do_any in parallel
 
 #no_cores <- detectCores()
-no_cores <- detectCores() - 1
-cl <- makeCluster(no_cores)
+no_cores <- detectCores()
+cl <- makeCluster(no_cores, type = "SOCK", outfile = "teste1.log")
+registerDoParallel(cl)
 
 #algos <- c("bioclim", "brt", "domain", "maxent", "glm", "mahal", "svme", "svmk", "rf")
 algos <- c("bioclim", "brt", "domain", "glm", "mahal", "svme", "svmk", "rf")
 
-foreach(i=1:3) %dopar% (do_any(species_name = species[98],
-                                               algo = algos[i],
-                                               predictors = clim.stack,
-                                               models_dir = modelos,
-                                               equalize = T))
+foreach(i=1:3, .packages = "modleR") %dopar% (do_any(species_name = species[98],
+                                                     algo = algos[i],
+                                                     predictors = clim.stack,
+                                                     models_dir = modelos,
+                                                     equalize = T))
 stopCluster(cl)
 ############################## 3_final_model ##############################
 
