@@ -1,41 +1,61 @@
-Máquina virtual Azure
+Máquina virtual Azure - como acessar
 
-entrar: 
-https://portal.azure.com/#home
+Sempre que utilizar uma das máquinas virtuais (MVs), são necessários três passos:
 
-ir no ícone:
-"Máquinas virtuais"
+1. Iniciar a MV no portal
+2. Trabalhar na MV (via terminal bash ou RStudio Server)
+3. Desligar a MV no portal
 
-Selecionar a máquina: 
-modleR1
-modleR2 (em proceso)
+##########
 
-copiar o endereço de ip público: 
-obs: sempre será um ip novo.
+1. Iniciar a máquina virtual
 
-terminal bash:
-(botão direito, git bash here)
+  - Entrar no portal do Azure: https://portal.azure.com/#home
+  - Entrar com seu login e senha pessoais
+  - Clicar no ícone "Máquinas virtuais"
+  - Selecionar a máquina deseja trabalhar (especificações abaixo)
+  - No painel "Visão Geral", clicar em "Iniciar", aguardar a inicialização da MV
+  - Copiar o valor de "Endereço IP Público"
 
-no azure, em conectar, copie:
-logon usando a conta local VM
+##########
 
-no terminar basch, digita
-cd ..e o endereço copiado do azure
+2a. Trabalhar na máquina virtual (via terminal bash)
 
-insira senha do azure
+  - No terminal, digite "ssh modleR@" seguido pelo IP copiado. Exemplo: ssh modleR@51.143.92.64
+  - Digitar a senha de acesso, "Trocar212@!@"
+ 
+Obs.: Para fazer upload de arquivos para a MV, usar o scp pelo terminal. Mais detalhes aqui: https://docs.microsoft.com/pt-br/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp
 
-digite: 
-yes
+##########
 
-iniciar o R no termnal bash:
+2b. Trabalhar na máquina virtual (via RStudio Server)
 
-R
-execute o script
+  - No seu computador, abrir o navegador de internet
+  - Na barra de endereços, colar o IP da MV seguido por ":8787". Exemplo: 51.143.92.64:8787
+  - Fazer login na MV: login modleR, senha Trocar212@!@
 
-para sair do R em bash:
-q()
+##########
+
+3. Desligar a máquina virtual
+
+  - Voltar ao portal do Azure: https://portal.azure.com/#home
+  - Acessar a página da MV que acabou de trabalhar
+  - Clicar em "Parar"
 
 ############################
+
+Especificações das máquinas virtuais disponíveis:
+
+modleR1
+A4m v2 padrão 
+4 vcpus, 32 GiB de memória
+
+modleR2
+E48_v3 Padrão
+48 vcpus, 384 GiB de memória
+
+############################
+
 Java instalado. poblemas pra instalar o rJava. dificuldade de compilar os seguintes arquivos:
 
 trying to compile and link a JNI program
