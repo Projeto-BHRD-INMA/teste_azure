@@ -1,0 +1,24 @@
+Tutorial criação de máquina virtual no Azure
+(incluindo apenas as opções que devem ser editadas, o resto é default)
+
+A partir do Portal do Azure:
+- Em "Serviços do Azure", clicar em "Máquinas Virtuais"
+- Vai aparecer a lista de MVs. Na barra de opções, acima da lista, clicar em "+ Adicionar"
+
+- em Detalhes do Projeto:
+  Assinatura: Microsoft Azure Sponsorship 2
+  Grupo de recursos: modleR
+  Nome da máquina virtual: (definir nome)
+  Região: Oeste dos EUA 2 (nós fizemos uma avaliação no início da nossa assinatura, os preços variam de acordo com a região, mas resolvemos padronizar as nossas no Oeste dos EUA 2)
+  Imagem: Escolher sistema operacional
+  Tamanho: Aqui você escolhe a configuração. Clique em "Selecionar tamanho" e depois em "Ver todos os tamanhos" para ver uma lista completa das configurações disponíveis (tem muitas!)
+  Definir Tipo de Autenticação - SSH ou Senha, inserir dados necessários (e anotar as senhas)
+  Regras de portas de entrada: Permitir portas selecionadas, SSH (22) (esse é o Default)
+  Clique em Avançar
+
+- em Discos:
+  Selecionar tipo de disco (SSD é mais rápido que HDD)
+  Abaixo de "Discos de dados", clicar em "Criar e anexar um novo disco"
+  Alterar tamanho se necessário e clicar em OK
+
+- Todas as outras opções pordem ser deixadas com os valores padrão.
